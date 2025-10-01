@@ -1,6 +1,7 @@
-package Adaction.Volunteers;
+package Adaction.Controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import Adaction.Models.Volunteers;
+import Adaction.Services.VolunteersService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Adaction/Volunteers")
+@RequestMapping("/adaction/volunteers")
 @CrossOrigin(origins = "http://localhost:5173")
 public class VolunteersController {
     private final VolunteersService volunteersService;

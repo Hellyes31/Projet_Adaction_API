@@ -1,25 +1,22 @@
-package Adaction.Wastes_Types;
+package Adaction.Models;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
-import java.sql.Date;
+import java.math.BigDecimal;
 
 @Entity
-public class Wastes_types {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String value;
+    private String name;
 
     @Column(nullable = false)
-    private String label;
-
-    @Column(nullable = false)
-    private String className;
-
+    private BigDecimal price;
 }

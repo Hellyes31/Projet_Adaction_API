@@ -1,13 +1,10 @@
-package Adaction.Coordinates;
-
-import jakarta.persistence.*;
+package Adaction.Models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
-import java.sql.Date;
 
 @Entity
 public class Coordinates {

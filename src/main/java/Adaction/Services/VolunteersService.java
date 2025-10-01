@@ -1,5 +1,7 @@
-package Adaction.Volunteers;
+package Adaction.Services;
 
+import Adaction.Repositories.VolunteersRepository;
+import Adaction.Models.Volunteers;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

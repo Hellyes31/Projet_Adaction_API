@@ -1,4 +1,4 @@
-package Adaction.Product;
+package Adaction.Models;
 
 
 import jakarta.persistence.Entity;
@@ -9,7 +9,7 @@ import jakarta.persistence.Column;
 import java.math.BigDecimal;
 
 @Entity
-public class Product {
+public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,5 +18,5 @@ public class Product {
     private String name;
 
     @Column(nullable = false)
-    private BigDecimal price;
+    private BigDecimal test;
 }

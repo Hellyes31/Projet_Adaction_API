@@ -1,4 +1,4 @@
-package Adaction.Associations;
+package Adaction.Models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,21 +8,33 @@ import jakarta.persistence.Column;
 import java.sql.Date;
 
 @Entity
-public class Associations {
+public class Collects {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private Date date;
 
     @Column(nullable = false)
-    private String description;
+    private String city;
 
     @Column(nullable = false)
-    private Integer points;
+    private Integer glass_nb;
 
     @Column(nullable = false)
-    private String image;
+    private Integer butt_nb;
+
+    @Column(nullable = false)
+    private Integer plastic_nb;
+
+    @Column(nullable = false)
+    private Integer electronics_nb;
+
+    @Column(nullable = false)
+    private Integer others_nb;
+
+    @Column(nullable = false)
+    private Integer volunteer_id;
 
 }
