@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS wastes_types (
+    id BIGSERIAL PRIMARY KEY,
+    value VARCHAR(255) NOT NULL,
+    label VARCHAR(255) NOT NULL,
+    className VARCHAR(255) NOT NULL
+);

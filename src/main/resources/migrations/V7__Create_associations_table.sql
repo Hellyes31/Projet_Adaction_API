@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS associations (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    points INTEGER NOT NULL,
+    image VARCHAR(255) NOT NULL
+);
