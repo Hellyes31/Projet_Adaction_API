@@ -84,6 +84,47 @@ public class Volunteer {
         return updated_at;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setTotal_points(Integer total_points) {
+        this.total_points = total_points;
+    }
+
+    public void setDonation_points(Integer donation_points) {
+        this.donation_points = donation_points;
+    }
+
+    public void setCreated_at(Date created_at) {
+        this.created_at = created_at;
+    }
+
+    public void setUpdated_at(Date updated_at) {
+        this.updated_at = updated_at;
+    }
+
+
 }
 
 
