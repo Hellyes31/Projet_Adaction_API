@@ -1,8 +1,8 @@
 ALTER TABLE "cities"
-ADD COLUMN coordinates_id INTEGER DEFAULT NULL;
+ADD COLUMN coordinates_id BIGINT DEFAULT NULL;
 
 ALTER TABLE "collects" ADD CONSTRAINT "collects_volunteer_id_foreign" FOREIGN KEY ("volunteer_id") REFERENCES "volunteers"("id");
 
-ALTER TABLE "cities" ADD CONSTRAINT "cities_id_foreign" FOREIGN KEY ("id") REFERENCES "collects"("city_id");
+ALTER TABLE "collects" ADD CONSTRAINT "collects_city_id_foreign" FOREIGN KEY ("city_id") REFERENCES "cities"("id");
 
-ALTER TABLE "coordinates" ADD CONSTRAINT "coordinates_id_foreign" FOREIGN KEY ("id") REFERENCES "cities"("coordinates_id");
+ALTER TABLE "cities" ADD CONSTRAINT "cities_coordinates_id_foreign" FOREIGN KEY ("coordinates_id") REFERENCES "coordinates"("id");
