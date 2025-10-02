@@ -1,7 +1,7 @@
-package Adaction.Services;
+package adaction.services;
 
-import Adaction.Repositories.VolunteersRepository;
-import Adaction.Models.Volunteers;
+import adaction.repositories.VolunteersRepository;
+import adaction.models.Volunteer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public class VolunteersService {
         this.volunteersRepository = volunteersRepository;
     }
 
-    public List<Volunteers> getAllVolunteers() {
+    public List<Volunteer> getAllVolunteers() {
         return this.volunteersRepository.findAll();
     }
 }

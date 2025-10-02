@@ -1,4 +1,4 @@
-package Adaction.Models;
+package adaction.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,7 +8,7 @@ import jakarta.persistence.Column;
 import java.sql.Date;
 
 @Entity
-public class Collects {
+public class Collect {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

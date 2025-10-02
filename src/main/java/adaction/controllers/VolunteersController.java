@@ -1,7 +1,7 @@
-package Adaction.Controllers;
+package adaction.controllers;
 
-import Adaction.Models.Volunteers;
-import Adaction.Services.VolunteersService;
+import adaction.models.Volunteer;
+import adaction.services.VolunteersService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/adaction/volunteers")
+@RequestMapping("/adaction/models/{volunteer}")
 @CrossOrigin(origins = "http://localhost:5173")
 public class VolunteersController {
     private final VolunteersService volunteersService;
@@ -21,8 +21,7 @@ public class VolunteersController {
     }
 
     @GetMapping
-    public List<Volunteers> getAllVolunteers() {
+    public List<Volunteer> getAllVolunteers() {
         return this.volunteersService.getAllVolunteers();
     }
 }
-

@@ -1,4 +1,4 @@
-package Adaction.Models;
+package adaction.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -7,15 +7,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 
 @Entity
-public class Coordinates {
+public class Association {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private Float latitude;
+    private String name;
 
     @Column(nullable = false)
-    private Float longitude;
+    private String description;
+
+    @Column(nullable = false)
+    private Integer points;
+
+    @Column(nullable = false)
+    private String image;
 
 }

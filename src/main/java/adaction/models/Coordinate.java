@@ -1,4 +1,4 @@
-package Adaction.Models;
+package adaction.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -7,18 +7,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 
 @Entity
-public class Wastes_types {
+public class Coordinate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String value;
+    private Float latitude;
 
     @Column(nullable = false)
-    private String label;
-
-    @Column(nullable = false)
-    private String className;
+    private Float longitude;
 
 }
