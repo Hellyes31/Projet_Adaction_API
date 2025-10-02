@@ -1,11 +1,9 @@
 package adaction.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
+
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class Collect {
@@ -16,8 +14,8 @@ public class Collect {
     @Column(nullable = false)
     private Date date;
 
-    @Column(nullable = false)
-    private String city;
+    @OneToMany(mappedBy = "collect")
+    private List<City>  city_id;
 
     @Column(nullable = false)
     private Integer glass_nb;
@@ -34,7 +32,7 @@ public class Collect {
     @Column(nullable = false)
     private Integer others_nb;
 
-    @Column(nullable = false)
-    private Integer volunteer_id;
-
+    @ManyToOne
+    @JoinColumn(name = "volunteer_id")
+    private Volunteer volunteer;
 }

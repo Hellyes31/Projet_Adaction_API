@@ -1,10 +1,8 @@
 package adaction.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class City {
@@ -14,5 +12,12 @@ public class City {
 
     @Column(nullable = false)
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private Collect collect;
+
+    @OneToMany(mappedBy = "city")
+    private List<Coordinate>  coordinates_id;
 
 }
