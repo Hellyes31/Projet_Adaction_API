@@ -1,5 +1,6 @@
 package adaction.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.sql.Date;
@@ -21,7 +22,6 @@ public class Volunteer {
 
     @Column(nullable = false)
     private String lastname;
-
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -123,7 +123,16 @@ public class Volunteer {
         this.updated_at = updated_at;
     }
 
+    @Transient
+    private String volunteerName;
 
+    public String getVolunteerName() {
+        return volunteerName;
+    }
+
+    public void setVolunteerName(String volunteerName) {
+        this.volunteerName = volunteerName;
+    }
 }
 
 

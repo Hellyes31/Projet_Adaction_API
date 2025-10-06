@@ -1,12 +1,12 @@
 package adaction.repositories;
 
-import adaction.models.Volunteer;
+import adaction.models.Collect;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface VolunteersRepository extends JpaRepository<Volunteer, String> {
-    Optional<Volunteer> findByFirstname(String firstname);
+public interface CollectsRepository extends JpaRepository<Collect, String> {
+    Optional<Collect> findById(long l);
 }
