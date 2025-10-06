@@ -123,6 +123,8 @@ public class Collect {
         this.volunteer = volunteer;
     }
 
+    @Transient
+    @JsonProperty("volunteer")
     public String getVolunteerName() {
         return volunteerName;
     }

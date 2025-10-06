@@ -34,7 +34,7 @@ public class CollectsService {
     @Transactional
     public Collect createCollect(Collect collect) {
         if (collect.getCityId() != null) {
-            City city = citiesRepository.findById(collect.getCityId())
+            City city = (City) citiesRepository.findById(collect.getCityId())
                     .orElseThrow(() -> new RuntimeException("City not found with id " + collect.getCityId()));
             collect.setCity(city);
         } else {
@@ -56,12 +56,12 @@ public class CollectsService {
     }
 
     public Optional<Collect> getCollectById(String id) {
-        return collectsRepository.findById(Long.parseLong(id));
+        return collectsRepository.findById(id);
     }
 
     @Transactional
     public Optional<Collect> updateCollect(String id, Collect collectDetails) {
-        return collectsRepository.findById(Long.parseLong(id))
+        return collectsRepository.findById(id)
                 .map(collect -> {
                     collect.setDate(collectDetails.getDate());
                     collect.setCity(collectDetails.getCity());
@@ -72,7 +72,7 @@ public class CollectsService {
                     collect.setOthersNb(collectDetails.getOthersNb());
 
                     if (collectDetails.getCityId() != null) {
-                        City city = citiesRepository.findById(collectDetails.getCityId())
+                        City city = (City) citiesRepository.findById(collectDetails.getCityId())
                                 .orElseThrow(() -> new RuntimeException("Ville introuvable avec id " + collectDetails.getCityId()));
                         collect.setCity(city);
                     }
@@ -95,7 +95,7 @@ public class CollectsService {
 
     @Transactional
     public boolean deleteCollect(String id) {
-        return collectsRepository.findById(Long.parseLong(id))
+        return collectsRepository.findById(id)
                 .map(collect -> {
                     collectsRepository.delete(collect);
                     return true;

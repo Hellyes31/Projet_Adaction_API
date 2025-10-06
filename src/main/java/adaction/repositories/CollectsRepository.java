@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface CollectsRepository extends JpaRepository<Collect, String> {
-    Optional<Collect> findById(long l);
+    Optional<Collect> findById(Integer id);
 }
