@@ -1,0 +1,1 @@
+ALTER TABLE coordinates ADD COLUMN city_id bigint REFERENCES cities(id);

@@ -9,24 +9,36 @@ import java.util.List;
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id")
+    private Long cityid;
 
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "city_id")
-    private Collect collect;
+    public List<Collect> getCollects() {
+        return collects;
+    }
+
+    public void setCollects(List<Collect> collects) {
+        this.collects = collects;
+    }
+
+    @OneToMany(mappedBy = "city")
+    private List<Collect> collects;
+
 
     @OneToMany(mappedBy = "city")
     private List<Coordinate>  coordinates_id;
 
+    @OneToMany(mappedBy = "city")
+    private List<Coordinate> coordinates;
+
     public Long getId() {
-        return id;
+        return cityid;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.cityid = id;
     }
 
     public String getName() {
@@ -37,13 +49,6 @@ public class City {
         this.name = name;
     }
 
-    public Collect getCollect() {
-        return collect;
-    }
-
-    public void setCollect(Collect collect) {
-        this.collect = collect;
-    }
 
     public List<Coordinate> getCoordinates_id() {
         return coordinates_id;

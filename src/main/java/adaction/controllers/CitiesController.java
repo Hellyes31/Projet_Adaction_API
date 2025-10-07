@@ -37,7 +37,7 @@ public class CitiesController {
 
     // GET by ID
     @GetMapping("/{id}")
-    public ResponseEntity<City> getCityById(@PathVariable String id){
+    public ResponseEntity<City> getCityById(@PathVariable Long id){
         Optional<City> city = citiesService.getCityById(id);
 
         if(city.isPresent()){
@@ -48,7 +48,7 @@ public class CitiesController {
 
     // PUT update
     @PutMapping("/{id}")
-    public ResponseEntity<City> updateCity(@PathVariable String id, @RequestBody City cityDetails){
+    public ResponseEntity<City> updateCity(@PathVariable Long id, @RequestBody City cityDetails){
         Optional<City> updatedCity = citiesService.updateCity(id, cityDetails);
 
         if(updatedCity.isPresent()){
@@ -59,7 +59,7 @@ public class CitiesController {
 
     // DELETE
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCity(@PathVariable String id){
+    public ResponseEntity<Void> deleteCity(@PathVariable Long id){
         boolean deleted = citiesService.deleteCity(id);
 
         if(deleted){

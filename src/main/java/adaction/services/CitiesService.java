@@ -26,12 +26,12 @@ public class CitiesService {
     }
 
     // GET by ID
-    public Optional<City> getCityById(String id) {
+    public Optional<City> getCityById(Long id) {
         return citiesRepository.findById(id);
     }
 
     // PUT update
-    public Optional<City> updateCity(String id, City cityDetails) {
+    public Optional<City> updateCity(Long id, City cityDetails) {
         Optional<City> city = citiesRepository.findById(id);
 
         if(city.isPresent()){
@@ -47,7 +47,7 @@ public class CitiesService {
     }
 
     // DELETE
-    public boolean deleteCity(String id) {
+    public boolean deleteCity(Long id) {
         Optional<City> city = citiesRepository.findById(id);
 
         if(city.isPresent()){

@@ -48,7 +48,7 @@ public class Coordinate {
     private Float longitude;
 
     @ManyToOne
-    @JoinColumn(name = "coordinates_id")
+    @JoinColumn(name = "city_id")
     private City city;
 
 }
