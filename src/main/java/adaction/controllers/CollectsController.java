@@ -24,7 +24,7 @@ public class CollectsController {
         return collectsService.getAllCollects();
     }
 
-    @PostMapping
+    @PostMapping(consumes = "application/json", produces = "application/json")
     public ResponseEntity<Collect> createCollect(@RequestBody Collect collect) {
         Collect collectCreated = collectsService.createCollect(collect);
         return new ResponseEntity<>(collectCreated, HttpStatus.CREATED);
