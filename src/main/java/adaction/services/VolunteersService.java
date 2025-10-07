@@ -27,12 +27,12 @@ public class VolunteersService {
 
     // GET by ID
     public Optional<Volunteer> getVolunteerById(String id) {
-        return volunteersRepository.findById(id);
+        return volunteersRepository.findById(Long.parseLong(id));
     }
 
     // PUT update
     public Optional<Volunteer> updateVolunteer(String id, Volunteer volunteerDetails) {
-        Optional<Volunteer> volunteer = volunteersRepository.findById(id);
+        Optional<Volunteer> volunteer = volunteersRepository.findById(Long.parseLong(id));
 
         if(volunteer.isPresent()){
             Volunteer existingVolunteer = volunteer.get();
@@ -55,7 +55,7 @@ public class VolunteersService {
 
     // DELETE
     public boolean deleteVolunteer(String id) {
-        Optional<Volunteer> volunteer = volunteersRepository.findById(id);
+        Optional<Volunteer> volunteer = volunteersRepository.findById(Long.parseLong(id));
 
         if(volunteer.isPresent()){
             volunteersRepository.delete(volunteer.get());
