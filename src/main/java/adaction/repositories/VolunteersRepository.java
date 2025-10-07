@@ -8,5 +8,4 @@ import java.util.Optional;
 
 @Repository
 public interface VolunteersRepository extends JpaRepository<Volunteer, Long> {
-    Optional<Volunteer> findByFirstname(String firstname);
 }

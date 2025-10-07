@@ -47,6 +47,7 @@ public class Volunteer {
     public Long getId() {
         return id;
     }
+
     public String getFirstname() {
         return firstname;
     }
@@ -67,19 +68,19 @@ public class Volunteer {
         return location;
     }
 
-    public Integer getTotal_points(){
+    public Integer getTotal_points() {
         return total_points;
     }
 
-    public Integer getDonation_points(){
+    public Integer getDonation_points() {
         return donation_points;
     }
 
-    public Date getCreated_at(){
+    public Date getCreated_at() {
         return created_at;
     }
 
-    public Date getUpdated_at(){
+    public Date getUpdated_at() {
         return updated_at;
     }
 
@@ -122,17 +123,5 @@ public class Volunteer {
     public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
-
-    @Transient
-    private String volunteerName;
-
-    public String getVolunteerName() {
-        return volunteerName;
-    }
-
-    public void setVolunteerName(String volunteerName) {
-        this.volunteerName = volunteerName;
-    }
 }
-
 
