@@ -17,7 +17,7 @@ public class Collect {
 
     @ManyToOne
     @JoinColumn(name = "city_id", nullable = false)
-    @JsonProperty("city_id")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private City city;
 
     @Column(nullable = false)
@@ -46,8 +46,8 @@ public class Collect {
 
 
     @Transient
-    @JsonProperty("volunteer")
-    private String volunteerName;
+    @JsonProperty("volunteer_id")
+    private Long volunteerId;
 
     public Collect() {}
 
@@ -124,13 +124,13 @@ public class Collect {
     }
 
     @Transient
-    @JsonProperty("volunteer")
-    public String getVolunteerName() {
-        return volunteerName;
+    @JsonProperty("volunteer_id")
+    public Long getVolunteerId() {
+        return volunteerId;
     }
 
-    public void setVolunteerName(String volunteerName) {
-        this.volunteerName = volunteerName;
+    public void setVolunteerId(Long volunteerId) {
+        this.volunteerId = volunteerId;
     }
 
     @Transient

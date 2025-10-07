@@ -41,14 +41,9 @@ public class CollectsService {
             throw new RuntimeException("city_id is required");
         }
 
-        if (collect.getVolunteerName() != null && !collect.getVolunteerName().isEmpty()) {
-            Volunteer volunteer = volunteersRepository.findByFirstname(collect.getVolunteerName())
-                    .orElseGet(() -> {
-                        Volunteer newVolunteer = new Volunteer();
-                        newVolunteer.setFirstname(collect.getVolunteerName());
-                        return volunteersRepository.save(newVolunteer);
-                    });
-
+        if (collect.getVolunteerId() != null) {
+            Volunteer volunteer = volunteersRepository.findById(collect.getVolunteerId())
+                    .orElseThrow(() -> new RuntimeException("Volunteer not found with id " + collect.getVolunteerId()));
             collect.setVolunteer(volunteer);
         }
 
@@ -56,12 +51,12 @@ public class CollectsService {
     }
 
     public Optional<Collect> getCollectById(String id) {
-        return collectsRepository.findById(id);
+        return collectsRepository.findById(Long.parseLong(id));
     }
 
     @Transactional
     public Optional<Collect> updateCollect(String id, Collect collectDetails) {
-        return collectsRepository.findById(id)
+        return collectsRepository.findById(Long.parseLong(id))
                 .map(collect -> {
                     collect.setDate(collectDetails.getDate());
                     collect.setCity(collectDetails.getCity());
@@ -77,13 +72,9 @@ public class CollectsService {
                         collect.setCity(city);
                     }
 
-                    if (collectDetails.getVolunteerName() != null && !collectDetails.getVolunteerName().isEmpty()) {
-                        Volunteer volunteer = volunteersRepository.findByFirstname(collectDetails.getVolunteerName())
-                                .orElseGet(() -> {
-                                    Volunteer newVolunteer = new Volunteer();
-                                    newVolunteer.setFirstname(collectDetails.getVolunteerName());
-                                    return volunteersRepository.save(newVolunteer);
-                                });
+                    if (collectDetails.getVolunteerId() != null) {
+                        Volunteer volunteer = volunteersRepository.findById(collectDetails.getVolunteerId())
+                                .orElseThrow(() -> new RuntimeException("Volunteer not found with id " + collectDetails.getVolunteerId()));
                         collect.setVolunteer(volunteer);
                     } else if (collectDetails.getVolunteer() != null) {
                         collect.setVolunteer(collectDetails.getVolunteer());
@@ -95,7 +86,7 @@ public class CollectsService {
 
     @Transactional
     public boolean deleteCollect(String id) {
-        return collectsRepository.findById(id)
+        return collectsRepository.findById(Long.parseLong(id))
                 .map(collect -> {
                     collectsRepository.delete(collect);
                     return true;
