@@ -1,5 +1,6 @@
 package adaction.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -27,11 +28,10 @@ public class City {
     private List<Collect> collects;
 
 
-    @OneToMany(mappedBy = "city")
-    private List<Coordinate>  coordinates_id;
-
-    @OneToMany(mappedBy = "city")
-    private List<Coordinate> coordinates;
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @OrderBy("id ASC")
+    private List<Coordinate> coordinates_id;
 
     public Long getId() {
         return cityid;

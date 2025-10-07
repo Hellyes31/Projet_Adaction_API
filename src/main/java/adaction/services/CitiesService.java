@@ -17,7 +17,7 @@ public class CitiesService {
 
     // GET all
     public List<City> getAllCities() {
-        return citiesRepository.findAll();
+        return citiesRepository.findAllWithCoordinates();
     }
 
     // POST create
@@ -27,7 +27,7 @@ public class CitiesService {
 
     // GET by ID
     public Optional<City> getCityById(Long id) {
-        return citiesRepository.findById(id);
+        return citiesRepository.findCityWithCoordinates(id);
     }
 
     // PUT update
