@@ -1,0 +1,4 @@
+ALTER TABLE volunteers ALTER COLUMN total_points DROP NOT NULL;
+ALTER TABLE volunteers ALTER COLUMN donation_points DROP NOT NULL;
+ALTER TABLE volunteers ALTER COLUMN created_at DROP NOT NULL;
+ALTER TABLE volunteers ALTER COLUMN updated_at DROP NOT NULL;

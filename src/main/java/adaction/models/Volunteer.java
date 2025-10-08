@@ -32,13 +32,13 @@ public class Volunteer {
     @Column(nullable = false)
     private String location;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Integer total_points;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Integer donation_points;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Date created_at;
 
     @Column(nullable = true)
