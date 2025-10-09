@@ -42,10 +42,18 @@ public class CollectsService {
         }
 
         if (collect.getVolunteerId() != null) {
+            Long volunteerId = collect.getVolunteerId().longValue();
             Volunteer volunteer = volunteersRepository.findById(collect.getVolunteerId())
                     .orElseThrow(() -> new RuntimeException("Volunteer not found with id " + collect.getVolunteerId()));
             collect.setVolunteer(volunteer);
         }
+
+        if (collect.getGlassNb() == null) collect.setGlassNb(0);
+        if (collect.getButtNb() == null) collect.setButtNb(0);
+        if (collect.getPlasticNb() == null) collect.setPlasticNb(0);
+        if (collect.getElectronicsNb() == null) collect.setElectronicsNb(0);
+        if (collect.getOthersNb() == null) collect.setOthersNb(0);
+        if (collect.getVolunteerId() == null) collect.setVolunteerId(1L);
 
         return collectsRepository.save(collect);
     }
