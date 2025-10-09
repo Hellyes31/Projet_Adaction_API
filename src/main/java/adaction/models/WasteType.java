@@ -1,12 +1,9 @@
 package adaction.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "wastes_types")
 public class WasteType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +15,41 @@ public class WasteType {
     @Column(nullable = false)
     private String label;
 
-    @Column(nullable = false)
+    @Column(name = "classname", nullable = false)
     private String className;
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
 
 }
