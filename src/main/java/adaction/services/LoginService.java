@@ -17,10 +17,14 @@ public class LoginService {
         this.passwordEncoder = passwordEncoder;
     }
     public Volunteer userAuthentification(String username, String password) {
-        Volunteer volunteer = volunteersRepository.findByUsername(username)
+        Volunteer volunteer = volunteersRepository.findByFirstname(username)
                 .orElseThrow(() -> new RuntimeException("Utilisateur introuvable !"));
-        if(!passwordEncoder.matches(password, volunteer.getPassword())) {
+        System.out.println("Login tenté : " + username + " / " + password);
+        System.out.println("Mot de passe en base : " + volunteer.getPassword());
+        if(!password.equals(volunteer.getPassword())) {
             throw new RuntimeException("Mot de passe incorrect !");
         } return volunteer;
+
     }
+
 }

@@ -1,11 +1,13 @@
 package adaction.controllers;
 
+import adaction.security.CorsConfig;
 import adaction.models.LoginRequest;
 import adaction.models.Volunteer;
 import adaction.services.LoginService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/api/login")

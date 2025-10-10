@@ -17,7 +17,7 @@ public class Volunteer {
     @OneToMany(mappedBy = "volunteer")
     private List<Collect> collects;
 
-    @Column(nullable = false)
+    @Column(name = "firstname", nullable = false)
     private String firstname;
 
     @Column(nullable = false)
