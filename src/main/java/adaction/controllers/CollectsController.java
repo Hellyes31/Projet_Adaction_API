@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -38,6 +39,23 @@ public class CollectsController {
             return new ResponseEntity<>(collect.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/monthly")
+    public ResponseEntity<Map<String, Integer>> getMonthlyWaste(
+            @RequestParam int year,
+            @RequestParam int month,
+            @RequestParam(required = false) Long volunteerId
+    ) {
+        Map<String, Integer> wasteData;
+
+        if (volunteerId != null) {
+            wasteData = collectsService.getWasteByMonthAndVolunteer(year, month, volunteerId);
+        } else {
+            wasteData = collectsService.getWasteByMonth(year, month);
+        }
+
+        return ResponseEntity.ok(wasteData);
     }
 
     @PutMapping("/{id}")
