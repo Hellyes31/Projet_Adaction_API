@@ -8,7 +8,8 @@ import adaction.repositories.CollectsRepository;
 import adaction.repositories.VolunteersRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 import java.util.Optional;
 
@@ -100,5 +101,47 @@ public class CollectsService {
                     return true;
                 })
                 .orElse(false);
+    }
+
+    public Map<String, Integer> getWasteByMonthAndVolunteer(int year, int month, Long volunteerId) {
+        List<Collect> collects = collectsRepository.findByYearAndMonthAndVolunteer(year, month, volunteerId);
+
+        Map<String, Integer> wasteData = new HashMap<>();
+        wasteData.put("cigarettes", 0);
+        wasteData.put("plastique", 0);
+        wasteData.put("verre", 0);
+        wasteData.put("electronique", 0);
+        wasteData.put("autre", 0);
+
+        for (Collect collect : collects) {
+            wasteData.put("cigarettes", wasteData.get("cigarettes") + (collect.getButtNb() != null ? collect.getButtNb() : 0));
+            wasteData.put("plastique", wasteData.get("plastique") + (collect.getPlasticNb() != null ? collect.getPlasticNb() : 0));
+            wasteData.put("verre", wasteData.get("verre") + (collect.getGlassNb() != null ? collect.getGlassNb() : 0));
+            wasteData.put("electronique", wasteData.get("electronique") + (collect.getElectronicsNb() != null ? collect.getElectronicsNb() : 0));
+            wasteData.put("autre", wasteData.get("autre") + (collect.getOthersNb() != null ? collect.getOthersNb() : 0));
+        }
+
+        return wasteData;
+    }
+
+    public Map<String, Integer> getWasteByMonth(int year, int month) {
+        List<Collect> collects = collectsRepository.findByYearAndMonth(year, month);
+
+        Map<String, Integer> wasteData = new HashMap<>();
+        wasteData.put("cigarettes", 0);
+        wasteData.put("plastique", 0);
+        wasteData.put("verre", 0);
+        wasteData.put("electronique", 0);
+        wasteData.put("autre", 0);
+
+        for (Collect collect : collects) {
+            wasteData.put("cigarettes", wasteData.get("cigarettes") + (collect.getButtNb() != null ? collect.getButtNb() : 0));
+            wasteData.put("plastique", wasteData.get("plastique") + (collect.getPlasticNb() != null ? collect.getPlasticNb() : 0));
+            wasteData.put("verre", wasteData.get("verre") + (collect.getGlassNb() != null ? collect.getGlassNb() : 0));
+            wasteData.put("electronique", wasteData.get("electronique") + (collect.getElectronicsNb() != null ? collect.getElectronicsNb() : 0));
+            wasteData.put("autre", wasteData.get("autre") + (collect.getOthersNb() != null ? collect.getOthersNb() : 0));
+        }
+
+        return wasteData;
     }
 }
