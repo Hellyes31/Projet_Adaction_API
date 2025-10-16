@@ -21,7 +21,8 @@ public class LoginService {
                 .orElseThrow(() -> new RuntimeException("Utilisateur introuvable !"));
         System.out.println("Login tenté : " + username + " / " + password);
         System.out.println("Mot de passe en base : " + volunteer.getPassword());
-        if(!password.equals(volunteer.getPassword())) {
+        //if(!password.equals(volunteer.getPassword())){
+        if (!passwordEncoder.matches(password, volunteer.getPassword())) {
             throw new RuntimeException("Mot de passe incorrect !");
         } return volunteer;
 
