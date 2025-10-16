@@ -26,6 +26,12 @@ public class VolunteersService {
 
     // POST create
     public Volunteer createVolunteer(Volunteer volunteer) {
+
+        if (volunteer.getPassword() != null && !volunteer.getPassword().isEmpty()) {
+            String encoded = passwordEncoder.encode(volunteer.getPassword());
+            volunteer.setPassword(encoded);
+        }
+
         return volunteersRepository.save(volunteer);
     }
 
@@ -53,7 +59,6 @@ public class VolunteersService {
             if(volunteerDetails.getPassword() !=null && !volunteerDetails.getPassword().isEmpty()){
                 String encoded = passwordEncoder.encode(volunteerDetails.getPassword());
                 existingVolunteer.setPassword(encoded);
-
             }
 
 
