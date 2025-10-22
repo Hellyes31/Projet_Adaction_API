@@ -15,22 +15,18 @@ public class CitiesService {
         this.citiesRepository = citiesRepository;
     }
 
-    // GET all
     public List<City> getAllCities() {
         return citiesRepository.findAllWithCoordinates();
     }
 
-    // POST create
     public City createCity(City city) {
         return citiesRepository.save(city);
     }
 
-    // GET by ID
     public Optional<City> getCityById(Long id) {
         return citiesRepository.findCityWithCoordinates(id);
     }
 
-    // PUT update
     public Optional<City> updateCity(Long id, City cityDetails) {
         Optional<City> city = citiesRepository.findById(id);
 
@@ -46,7 +42,6 @@ public class CitiesService {
         return Optional.empty();
     }
 
-    // DELETE
     public boolean deleteCity(Long id) {
         Optional<City> city = citiesRepository.findById(id);
 
